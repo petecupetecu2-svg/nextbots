@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sala de Tela</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Tela de carregamento -->
+  <div id="loading" class="overlay">
+    <div class="overlay-card">
+      <div class="icon-wrap">&#128187;</div>
+      <h1>Sala de Tela</h1>
+      <p id="loadingText">Conectando ao Discord&hellip;</p>
+      <div class="spinner"></div>
+    </div>
+  </div>
+
+  <!-- Tela de erro -->
+  <div id="errorScreen" class="overlay" hidden>
+    <div class="overlay-card error">
+      <div class="icon-wrap">&#9888;</div>
+      <h2>Erro ao conectar</h2>
+      <p id="errorText">Ocorreu um erro inesperado.</p>
+      <button class="btn-retry" onclick="location.reload()">Tentar novamente</button>
+    </div>
+  </div>
+
+  <!-- iframe: embeds streaming.storb.lol -->
+  <iframe
+    id="streamingFrame"
+    src=""
+    title="Sala de Tela"
+    allow="camera; microphone; display-capture; autoplay; clipboard-read; clipboard-write; fullscreen"
+    allowfullscreen
+    hidden
+  ></iframe>
+
+  <script src="discord-sdk.bundle.js"></script>
+  <script src="share.js"></script>
+</body>
+</html>

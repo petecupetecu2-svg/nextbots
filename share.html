@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sala de Tela &mdash; Compartilhar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="loading" class="overlay">
+    <div class="overlay-card">
+      <div class="icon-wrap">&#128247;</div>
+      <h1>Compartilhar Tela</h1>
+      <p id="loadingText">Preparando sala&hellip;</p>
+      <div class="spinner"></div>
+    </div>
+  </div>
+
+  <div id="errorScreen" class="overlay" hidden>
+    <div class="overlay-card error">
+      <div class="icon-wrap">&#9888;</div>
+      <h2>Erro</h2>
+      <p id="errorText">N&atilde;o foi poss&iacute;vel carregar a sala.</p>
+      <button class="btn-retry" onclick="history.back()">Voltar</button>
+    </div>
+  </div>
+
+  <iframe
+    id="streamingFrame"
+    src=""
+    title="Compartilhar Tela"
+    allow="camera; microphone; display-capture; autoplay; clipboard-read; clipboard-write; fullscreen"
+    allowfullscreen
+    hidden
+  ></iframe>
+
+  <script src="discord-sdk.bundle.js"></script>
+  <script src="share.js"></script>
+</body>
+</html>

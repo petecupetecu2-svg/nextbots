@@ -1,0 +1,34 @@
+{
+  "rewrites": [
+    {
+      "source": "/.proxy/storb/:path*",
+      "destination": "https://streaming.storb.lol/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Cross-Origin-Embedder-Policy",  "value": "credentialless" },
+        { "key": "Cross-Origin-Opener-Policy",    "value": "same-origin" },
+        { "key": "X-Content-Type-Options",         "value": "nosniff" }
+      ]
+    },
+    {
+      "source": "/.proxy/:path*",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin",  "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS, PUT, DELETE" },
+        { "key": "Access-Control-Allow-Headers", "value": "*" }
+      ]
+    },
+    {
+      "source": "/api/:path*",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin",  "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "POST, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
+      ]
+    }
+  ]
+}
